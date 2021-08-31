@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { Component } from 'react';
 import Node from './Node/Node';
-import {dijkstra} from '../algorithms/dijkstra';
-import {AStar} from '../algorithms/aStar';
-import {dfs} from '../algorithms/dfs';
-import {bfs} from '../algorithms/bfs';
+import { dijkstra } from '../algorithms/dijkstra';
+import { AStar } from '../algorithms/aStar';
+import { dfs } from '../algorithms/dfs';
+import { bfs } from '../algorithms/bfs';
 
 import './PathfindingVisualizer.css';
 
@@ -37,11 +38,11 @@ export default class PathfindingVisualizer extends Component {
 
   componentDidMount() {
     const grid = this.getInitialGrid();
-    this.setState({grid});
+    this.setState({ grid });
   }
 
   toggleIsRunning() {
-    this.setState({isRunning: !this.state.isRunning});
+    this.setState({ isRunning: !this.state.isRunning });
   }
 
   toggleView() {
@@ -55,7 +56,7 @@ export default class PathfindingVisualizer extends Component {
           this.state.ROW_COUNT,
           this.state.COLUMN_COUNT,
         );
-        this.setState({isDesktopView, grid});
+        this.setState({ isDesktopView, grid });
       } else {
         if (
           this.state.START_NODE_ROW > this.state.MOBILE_ROW_COUNT ||
@@ -69,7 +70,7 @@ export default class PathfindingVisualizer extends Component {
             this.state.MOBILE_ROW_COUNT,
             this.state.MOBILE_COLUMN_COUNT,
           );
-          this.setState({isDesktopView, grid});
+          this.setState({ isDesktopView, grid });
         }
       }
     }
@@ -183,13 +184,13 @@ export default class PathfindingVisualizer extends Component {
               `node-${this.state.currRow}-${this.state.currCol}`,
             ).className = 'node';
 
-            this.setState({currRow: row, currCol: col});
+            this.setState({ currRow: row, currCol: col });
             const currStartNode = this.state.grid[row][col];
             currStartNode.isStart = true;
             document.getElementById(`node-${row}-${col}`).className =
               'node node-start';
           }
-          this.setState({START_NODE_ROW: row, START_NODE_COL: col});
+          this.setState({ START_NODE_ROW: row, START_NODE_COL: col });
         } else if (this.state.isFinishNode) {
           if (nodeClassName !== 'node node-wall') {
             const prevFinishNode = this.state.grid[this.state.currRow][
@@ -200,16 +201,16 @@ export default class PathfindingVisualizer extends Component {
               `node-${this.state.currRow}-${this.state.currCol}`,
             ).className = 'node';
 
-            this.setState({currRow: row, currCol: col});
+            this.setState({ currRow: row, currCol: col });
             const currFinishNode = this.state.grid[row][col];
             currFinishNode.isFinish = true;
             document.getElementById(`node-${row}-${col}`).className =
               'node node-finish';
           }
-          this.setState({FINISH_NODE_ROW: row, FINISH_NODE_COL: col});
+          this.setState({ FINISH_NODE_ROW: row, FINISH_NODE_COL: col });
         } else if (this.state.isWallNode) {
           const newGrid = getNewGridWithWallToggled(this.state.grid, row, col);
-          this.setState({grid: newGrid});
+          this.setState({ grid: newGrid });
         }
       }
     }
@@ -217,10 +218,10 @@ export default class PathfindingVisualizer extends Component {
 
   handleMouseUp(row, col) {
     if (!this.state.isRunning) {
-      this.setState({mouseIsPressed: false});
+      this.setState({ mouseIsPressed: false });
       if (this.state.isStartNode) {
         const isStartNode = !this.state.isStartNode;
-        this.setState({isStartNode, START_NODE_ROW: row, START_NODE_COL: col});
+        this.setState({ isStartNode, START_NODE_ROW: row, START_NODE_COL: col });
       } else if (this.state.isFinishNode) {
         const isFinishNode = !this.state.isFinishNode;
         this.setState({
@@ -236,13 +237,13 @@ export default class PathfindingVisualizer extends Component {
   handleMouseLeave() {
     if (this.state.isStartNode) {
       const isStartNode = !this.state.isStartNode;
-      this.setState({isStartNode, mouseIsPressed: false});
+      this.setState({ isStartNode, mouseIsPressed: false });
     } else if (this.state.isFinishNode) {
       const isFinishNode = !this.state.isFinishNode;
-      this.setState({isFinishNode, mouseIsPressed: false});
+      this.setState({ isFinishNode, mouseIsPressed: false });
     } else if (this.state.isWallNode) {
       const isWallNode = !this.state.isWallNode;
-      this.setState({isWallNode, mouseIsPressed: false});
+      this.setState({ isWallNode, mouseIsPressed: false });
       this.getInitialGrid();
     }
   }
@@ -314,7 +315,7 @@ export default class PathfindingVisualizer extends Component {
     if (!this.state.isRunning) {
       this.clearGrid();
       this.toggleIsRunning();
-      const {grid} = this.state;
+      const { grid } = this.state;
       const startNode =
         grid[this.state.START_NODE_ROW][this.state.START_NODE_COL];
       const finishNode =
@@ -393,13 +394,13 @@ export default class PathfindingVisualizer extends Component {
   }
 
   render() {
-    const {grid, mouseIsPressed} = this.state;
+    const { grid, mouseIsPressed } = this.state;
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
           <a className="navbar-brand" href="#">
-          <img src="./logo1.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo"></img>
-          &nbsp;
+            <img src="./logo1.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo"></img>
+            &nbsp;
             <b>PathFinding Visualizer</b>
           </a>
           <button
@@ -413,7 +414,7 @@ export default class PathfindingVisualizer extends Component {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+            <ul className="navbar-nav">
               <li className="nav-item">
                 <a
                   className="nav-link"
@@ -423,18 +424,18 @@ export default class PathfindingVisualizer extends Component {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="https://github.com/souravv-singhh/PathFinding-Visualizer" target="_blank">
+                <a className="nav-link" href="https://github.com/souravv-singhh/PathFinding-Visualizer" target="_blank" rel="noreferrer">
                   Code
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="https://en.wikipedia.org/wiki/Pathfinding" target="_blank">
+                <a className="nav-link" href="https://en.wikipedia.org/wiki/Pathfinding" target="_blank" rel="noreferrer">
                   Reference
                 </a>
               </li>
             </ul>
           </div>
-          
+
         </nav>
 
 
@@ -446,7 +447,7 @@ export default class PathfindingVisualizer extends Component {
               return (
                 <tr key={rowIdx}>
                   {row.map((node, nodeIdx) => {
-                    const {row, col, isFinish, isStart, isWall} = node;
+                    const { row, col, isFinish, isStart, isWall } = node;
                     return (
                       <Node
                         key={nodeIdx}
