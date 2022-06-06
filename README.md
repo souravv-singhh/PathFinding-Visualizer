@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# PATH - Finding Visualizer 
+![Screenshot (8)](https://user-images.githubusercontent.com/64827072/172159580-4d8c36a3-be7a-400b-b26b-7a8209980508.png)
+
+
+## A Visualization Tool for path Finding Algorithms
+
+![Screenshot (9)](https://user-images.githubusercontent.com/64827072/172159935-38311983-28bc-46b9-9a7e-119f691734cf.png)
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
