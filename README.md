@@ -6,7 +6,13 @@
 
 ![Screenshot (9)](https://user-images.githubusercontent.com/64827072/172159935-38311983-28bc-46b9-9a7e-119f691734cf.png)
 
-
+# Get the Shortest Distance between 2 points
+  * Visualize the sortest path using Algorithms like :
+    * DFS Algorithm
+    * BFS Algorithm
+    * Dijkstra's Algorithm
+    * A* Algorithm 
+ 
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
